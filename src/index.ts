@@ -55,6 +55,14 @@ export type Options = {
      * 水印倾斜度数
      */
     rotate: number;
+    /**
+     * 页面宽度
+     */
+    pageWidth?: number;
+    /**
+     * 页面高度
+     */
+    pageHeight?: number;
 };
 
 const defaultOptions: Options = {
@@ -81,11 +89,13 @@ const watermark = (options: Partial<Options>, container: Element = document.body
 
     //获取页面最大宽度
     const page_width =
+        megerOptions.pageWidth ||
         window.innerWidth - 20 ||
         document.documentElement.clientWidth - 20 ||
         document.body.clientWidth - 20;
     //获取页面最大长度
     const page_height =
+        megerOptions.pageWidth ||
         window.innerHeight - 20 ||
         document.documentElement.clientHeight - 20 ||
         document.body.clientHeight - 20;
@@ -161,6 +171,10 @@ const watermark = (options: Partial<Options>, container: Element = document.body
         }
     }
     container.appendChild(fragment);
+
+    return function removeWatermark() {
+        container.innerHTML = '';
+    };
 };
 
 export default watermark;

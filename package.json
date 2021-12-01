@@ -1,6 +1,6 @@
 {
   "name": "gavin-watermark",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "watermark",
   "repository": "git@github.com:G-G-boy/watermark.git",
   "author": "gavin <1159782348@qq.com>",
@@ -13,7 +13,8 @@
     "watermark"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "format": "prettier --write ."
   },
   "devDependencies": {
     "@gavin-fabric/prettier": "^0.0.5",
